@@ -2,8 +2,18 @@
 import { RouterView, RouterLink } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import Button from './components/atoms/_Button.vue'
+import { computed } from 'vue'
 
 const authStore = useAuthStore()
+
+const username = computed(() => {
+  if (authStore.getUser.meta_data) {
+    console.log(authStore.getUser)
+    return `${authStore.getUser?.meta_data.first_name} ${authStore.getUser?.meta_data.last_name}`
+  } else {
+    return ''
+  }
+})
 </script>
 
 <template>
@@ -15,7 +25,7 @@ const authStore = useAuthStore()
       <RouterLink to="/login" v-if="!authStore.getUser.aud">
         <Button>Log in</Button>
       </RouterLink>
-      {{ authStore.getUser?.email }}
+      {{ username }}
     </nav>
   </header>
 

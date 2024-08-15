@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  type: 'button' | 'submit'
+  type?: 'button' | 'submit'
 }
 const props = withDefaults(defineProps<Props>(), {
   type: 'button'

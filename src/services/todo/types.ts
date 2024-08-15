@@ -4,7 +4,7 @@ export type TodoList = {
   deleted: boolean
   created_at: Date
   category: TodoCategory
-  item_count?: Array<{ count: number }>
+  item_count: Array<{ count: number }>
   items?: Array<TodoItem>
 }
 

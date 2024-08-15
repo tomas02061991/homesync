@@ -7,11 +7,26 @@ defineProps<{
 </script>
 <template>
   <ul>
+    <li>
+      <p>name</p>
+      <p>items</p>
+    </li>
     <RouterLink :to="`/todo/${item.id}`" v-for="item in items" :key="item.id">
       <li>
-        {{ item.title }}
+        <p>{{ item.title }}</p>
+        <p>{{ item.item_count[0].count }}</p>
       </li>
     </RouterLink>
   </ul>
 </template>
-<style scoped></style>
+<style scoped>
+ul {
+  padding: 0;
+}
+li {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+</style>

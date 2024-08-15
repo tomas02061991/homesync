@@ -8,7 +8,12 @@ const getTodoList = async (id: string) => {
   return await http.get(`todo/${id}`)
 }
 
+const updateTodoItem = async (id: string, value: { completed: boolean }) => {
+  return await http.patch(`todo/item/${id}`, value)
+}
+
 export default {
   getTodoLists,
-  getTodoList
+  getTodoList,
+  updateTodoItem
 }
