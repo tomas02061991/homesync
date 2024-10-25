@@ -51,6 +51,14 @@ export const useTodoStore = defineStore('todo', {
         return null
       }
       return null
+    },
+    async deleteItem(id: string ) {
+      try {
+        await API.todo.deleteTodoItem(id)
+      } catch (error) {
+        const _error = error as AxiosError<string>
+      }
+    
     }
   }
 })

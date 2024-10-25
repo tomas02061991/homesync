@@ -11,17 +11,11 @@ const { item } = toRefs(props)
 
 const store = useTodoStore()
 
-const completeItem = () => {
-  store
-    .updateItem(item.value.id.toString(), { completed: !item.value.completed })
-    .then((newItem) => {
-      if (newItem) item.value = newItem
-    })
-}
+const emit = defineEmits(['update'])
 </script>
 
 <template>
-  <div @click="completeItem" :class="{ completed: item.completed }">{{ item.title }}</div>
+  <div @click="emit('update', item.id)" :class="{ completed: item.completed }">{{ item.title }}</div>
 </template>
 
 <style scoped>
@@ -29,7 +23,6 @@ div {
   cursor: pointer;
 }
 .completed {
-  background-color: aqua;
   text-decoration: line-through;
 }
 </style>

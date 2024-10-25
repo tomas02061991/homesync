@@ -20,9 +20,9 @@ const login = async () => {
 
 <template>
   <form @submit.prevent="login">
-    <TextField type="email" label="Email" v-model="email" />
-    <TextField type="password" label="Password" v-model="password" />
-    <Button type="submit">Login</Button>
+    <TextField type="email" placeholder="E-mail" v-model="email" />
+    <TextField type="password" placeholder="Password" v-model="password" />
+    <Button type="submit">Sign in</Button>
   </form>
 </template>
 

@@ -1,42 +1,28 @@
 <script setup lang="ts">
-import { RouterView, RouterLink } from 'vue-router'
+import { RouterView } from 'vue-router'
+import NavBar from './components/layoutElements/NavBar.vue';
 import { useAuthStore } from '@/stores/auth'
-import Button from './components/atoms/_Button.vue'
-import { computed } from 'vue'
 
 const authStore = useAuthStore()
 
-const username = computed(() => {
-  if (authStore.getUser.meta_data) {
-    console.log(authStore.getUser)
-    return `${authStore.getUser?.meta_data.first_name} ${authStore.getUser?.meta_data.last_name}`
-  } else {
-    return ''
-  }
-})
+
 </script>
 
 <template>
   <header>
-    <nav>
-      <RouterLink to="/signup" v-if="!authStore.getUser.aud">
-        <Button>Sign Up</Button>
-      </RouterLink>
-      <RouterLink to="/login" v-if="!authStore.getUser.aud">
-        <Button>Log in</Button>
-      </RouterLink>
-      {{ username }}
-    </nav>
+    <NavBar v-if="authStore.isAuthenticated"/>
   </header>
-
+  <main>
   <RouterView />
+</main>
+
 </template>
 
 <style scoped>
 nav {
   height: 80px;
   width: 100vw;
-  background-color: #6eacb5;
+  background-color: var(--primary-color);
   position: absolute;
   top: 0;
   left: 0;

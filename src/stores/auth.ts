@@ -12,14 +12,21 @@ export const useAuthStore = defineStore('auth', {
   getters: {
     getUser(state) {
       return state.user
-    }
+    },
+    isAuthenticated(state) {
+      return (
+        state.user &&
+        Object.keys(state.user).length > 0 &&
+        state.user.constructor === Object
+      );
+    },
   },
   actions: {
-    async signup(email: string, password: string): Promise<APIResponse<Token | null>> {
+    async signup(email: string, password: string, fullname: string): Promise<APIResponse<Token | null>> {
       try {
-        const { status, data } = await API.auth.signUp(email, password)
+        const name = fullname.split(' ')
+        const { status, data } = await API.auth.signUp(email, password, name[0], name[1])
         if (status === 200) {
-          console.log('yaii')
           return {
             success: true,
             content: { token: data.token }
