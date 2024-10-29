@@ -19,15 +19,5 @@ const authStore = useAuthStore()
 </template>
 
 <style scoped>
-nav {
-  height: 80px;
-  width: 100vw;
-  background-color: var(--primary-color);
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: end;
-}
+
 </style>

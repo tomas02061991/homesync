@@ -13,6 +13,12 @@
     color: var(--hs-primary-color);
     text-align: center;
   }
+
+  h2 {
+    font-size: 17px;
+    color: var(--hs-secondary-color);
+    text-align: center;
+  }
 }
 
 @media (min-width: 1024px) {

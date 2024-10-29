@@ -57,9 +57,7 @@ const signUp = () => {
     <TextField
       v-model="fullName"
       placeholder="Full name"
-      type="email"
-      :error="errors.email"
-      @blur="validateField('email')"
+      type="text"
     />
     <TextField
       v-model="email"

@@ -31,7 +31,7 @@ const model = defineModel({ required: true })
 input {
   padding: 8px 12px;
   border-radius: 10px;
-  background-color: var(--hs-secondary-color);
+  background-color: var(--hs-backdrop-color);
   width: 100%;
   height: 48px;
   display: block;

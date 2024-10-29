@@ -16,7 +16,10 @@
 
 <style scoped>
     .headline {
-        margin-bottom: 36px;
+        margin: 36px 0;
+    }
+    h1 {
+        margin-bottom: 14px;
     }
     span {
         display: block;
